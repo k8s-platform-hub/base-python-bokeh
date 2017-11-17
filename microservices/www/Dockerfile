@@ -13,7 +13,7 @@ RUN apt-get install -y python python-dev python-distribute python-pip
 RUN pip install bokeh
 
 # Copy the application folder inside the container
-ADD /app /app
+ADD app /app
 
 # Set the default directory where CMD will execute
 WORKDIR /app
