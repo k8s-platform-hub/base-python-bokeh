@@ -20,9 +20,6 @@ items:
       spec:
         containers:
         - image: hasura/base-git-image:0.7
-          env:
-          - name: ORIGIN_URL
-            value: www.{{ cluster.name }}.hasura-app.io
           command:
           - bokeh
           - serve
@@ -30,7 +27,7 @@ items:
           - --port
           - '8080'
           - --allow-websocket-origin
-          - ${ORIGIN_URL}
+          - www.{{ cluster.name }}.hasura-app.io
           imagePullPolicy: IfNotPresent
           name: www
           ports:
