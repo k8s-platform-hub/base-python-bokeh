@@ -170,5 +170,4 @@ www:
       namespace: '{{ cluster.metadata.namespaces.user }}'
     upstreamServicePath: /
     upstreamServicePort: 80
-
-
+    enableWebsockets: true
