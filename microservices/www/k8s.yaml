@@ -23,7 +23,7 @@ items:
           imagePullPolicy: IfNotPresent
           name: www
           ports:
-          - containerPort: 8080
+          - containerPort: 5006
             protocol: TCP
           resources: {}
         securityContext: {}
@@ -42,7 +42,7 @@ items:
     ports:
     - port: 80
       protocol: TCP
-      targetPort: 8080
+      targetPort: 5006
     selector:
       app: www
     type: ClusterIP
