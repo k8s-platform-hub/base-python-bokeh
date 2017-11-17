@@ -16,13 +16,7 @@ RUN pip --version
 # Copy the application folder inside the container
 ADD /app /app
 
-# Expose ports
-EXPOSE 5006
-
 # Set the default directory where CMD will execute
 WORKDIR /app
 
-# Set the default command to execute
-# when creating a new container
-# i.e. using CherryPy to serve the application
-CMD ["bokeh", "serve", "bokeh_app.py"]
+CMD ["bokeh", "serve", "bokeh_app.py", "--port", "8080"]
