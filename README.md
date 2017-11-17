@@ -1,55 +1,30 @@
-# base
+# python-bokeh
 
-A blank template to be used as a starting point to build projects on Hasura. A "project" is a "gittable" directory in the file system, which captures all the information regarding clusters, services and migrations. It can also be used to keep source code for custom services that you write.
+A simple python app using the `bokeh` library which runs on the `www` subdomain.
 
-## Files and Directories
+# Quickstart Instructions
 
-The project (a.k.a. project directory) has a particular directory structure and it has to be maintained strictly, else `hasura` cli would not work as expected. A representative project is shown below:
-
-```
-.
-├── hasura.yaml
-├── clusters.yaml
-├── conf
-│   ├── authorized-keys.yaml
-│   ├── auth.yaml
-│   ├── ci.yaml
-│   ├── domains.yaml
-│   ├── filestore.yaml
-│   ├── gateway.yaml
-│   ├── http-directives.conf
-│   ├── notify.yaml
-│   ├── postgres.yaml
-│   ├── routes.yaml
-│   └── session-store.yaml
-├── migrations
-│   ├── 1504788327_create_table_userprofile.down.yaml
-│   ├── 1504788327_create_table_userprofile.down.sql
-│   ├── 1504788327_create_table_userprofile.up.yaml
-│   └── 1504788327_create_table_userprofile.up.sql
-└── microservices 
-    ├── adminer
-    │   └── k8s.yaml
-    └── flask
-        ├── src/
-        ├── k8s.yaml
-        └── Dockerfile
+```sh
+$ hasura quickstart hasura/base-python-bokeh
+$ cd base-python-bokeh
+$ git add . && git commit -m "Initial Commit"
+$ git push hasura master
 ```
 
-### `hasura.yaml`
+Now, your app will be running at `https://www.YOUR-CLUSTER-NAME.hasura-app.io` (replace `YOUR-CLUSTER-NAME` with the name of your cluster). To get the name of your cluster
 
-This file contains some metadata about the project, namely a name, description and some keywords. Also contains `platformVersion` which says which Hasura platform version is compatible with this project.
+```sh
+$ hasura cluster status
+```
 
-### `clusters.yaml`
+# Local development
 
-Info about the clusters added to this project can be found in this file. Each cluster is defined by it's name allotted by Hasura. While adding the cluster to the project you are prompted to give an alias, which is just hasura by default. The `kubeContext` mentions the name of kubernetes context used to access the cluster, which is also managed by hasura. The `config` key denotes the location of cluster's metadata on the cluster itself. This information is parsed and cluster's metadata is appended while conf is rendered. `data` key is for holding custom variables that you can define.
+Every time you push, your code will get deployed on a public URL. However, for faster iteration you should locally test your changes. To test your changes locally:
 
-```yaml
-- name: h34-ambitious93-stg
-  alias: hasura
-  kubeContext: h34-ambitious93-stg
-  config:
-    configmap: controller-conf
-    namespace: hasura
-  data: null  
+* Follow the instructions [here](http://bokeh.pydata.org/en/0.11.1/docs/user_guide/quickstart.html) to install `bokeh` on your local machine.
+
+```sh
+$ cd microservices/www/app
+# Make your changes to the bokeh_app.py file
+$ bokeh serve bokeh_app.py
 ```
