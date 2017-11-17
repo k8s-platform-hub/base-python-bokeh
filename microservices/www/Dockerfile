@@ -11,17 +11,11 @@ RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential
 RUN apt-get install -y python python-dev python-distribute python-pip
 
 RUN pip install bokeh
-RUN pip --version
 
 # Copy the application folder inside the container
 ADD /app /app
 
-EXPOSE 8080
-
-RUN echo $ORIGIN_URL
-RUN echo ORIGIN_URL
-
 # Set the default directory where CMD will execute
 WORKDIR /app
 
-CMD ["bokeh", "serve", "bokeh_app.py", "--port", "8080", "--allow-websocket-origin", "$ORIGIN_URL"]
+# Run command specified in the k8s.yaml file
