@@ -30,7 +30,7 @@ items:
           - --port
           - '8080'
           - --allow-websocket-origin
-          - ${ORIGIN_URL}
+          - www.analogical99.hasura-app.io
           imagePullPolicy: IfNotPresent
           name: www
           ports:
