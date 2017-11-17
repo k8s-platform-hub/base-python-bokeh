@@ -3,6 +3,7 @@ keywords: bokeh, python, pip
 name: base-python-bokeh
 platformVersion: v0.15.9
 media:
-  images: 
+  images:
+    - https://raw.githubusercontent.com/hasura/base-python-bokeh/master/assets/home.png
   videos:
-repoUrl:
+repoUrl: https://github.com/hasura/base-python-bokeh
