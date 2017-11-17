@@ -1,4 +1,4 @@
-description: Blank template for a Hasura project
-keywords: base, getting-started
-name: base
-platformVersion: v0.15.3
+description: A simple python app using the bokeh library.
+keywords: bokeh, python, pip
+name: base-python-bokeh
+platformVersion: v0.15.9
