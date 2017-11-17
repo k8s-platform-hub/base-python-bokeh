@@ -16,7 +16,12 @@ RUN pip --version
 # Copy the application folder inside the container
 ADD /app /app
 
+EXPOSE 8080
+
+RUN echo $ORIGIN_URL
+RUN echo ORIGIN_URL
+
 # Set the default directory where CMD will execute
 WORKDIR /app
 
-CMD ["bokeh", "serve", "bokeh_app.py", "--port", "8080"]
+CMD ["bokeh", "serve", "bokeh_app.py", "--port", "8080", "--allow-websocket-origin", "$ORIGIN_URL"]
