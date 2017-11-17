@@ -30,7 +30,7 @@ items:
           - --port
           - '8080'
           - --allow-websocket-origin
-          - $ORIGIN_URL
+          - ${ORIGIN_URL}
           imagePullPolicy: IfNotPresent
           name: www
           ports:
