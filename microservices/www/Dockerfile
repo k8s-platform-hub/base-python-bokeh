@@ -19,4 +19,4 @@ ADD /app /app
 WORKDIR /app
 
 # Run command specified in the k8s.yaml file
-CMD echo $ORIGIN_URL
+CMD ["echo", "${ORIGIN_URL}"]
